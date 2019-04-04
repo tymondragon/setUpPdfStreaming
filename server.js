@@ -31,7 +31,7 @@ app.get('/pdf', (req, res, next) => {
     return fileSizeInBytes
 }
 
-  let filePath = "/Users/tymondragon/workspace/nodePdf/public/Mondragon_Ty_indigo_10790286usCOLE-1cc.pdf";
+  let filePath = "/Users/tymondragon/workspace/nodePdf/public/forLoops.pdf";
 
   fs.readFile(filePath , function (err,data){
 
@@ -43,36 +43,9 @@ app.get('/pdf', (req, res, next) => {
       'Expires' : 0
     });
     res.send(data);
-    
+
   });
 })
-
-// app.get('/pdf', (req, res, next) => {
- 
-//   async function getPDF() {
-//     const response = await fetch('http://localhost:3000/file', {
-//       headers: {
-//         'Accept': "application/json",
-//         'Disposition': "attachment"
-//       }
-//     })
-//     .then(body => console.log(body))
-//     .catch(err => console.log(err));
-    
-//     await console.log(response)
-//     // return await response
-//   }
-  
-  // let ttiPDF = '/Users/tymondragon/workspace/nodePdf/public/Mondragon_Ty_indigo_10790286usCOLE-1cc.pdf'
-  
-  // fs.readFile(ttiPDF , function (err,data){
-  //   res.set({
-  //     'Content-Type': "application/pdf",
-  //     'Disposition': 'inline'
-  //   });
-  //   res.send(data);
-  // });
-// })
 
 app.use((req, res, next) => {
   res.status(404).json({error:{message:"404 Not Found"}})
